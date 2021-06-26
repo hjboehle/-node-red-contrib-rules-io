@@ -1,0 +1,10 @@
+{
+    "name": "node-red-contrib-rules-io",
+    "version": "0.0.1",
+    "description": "Generic rules node for Node-RED, that executes file-based rules",
+    "node-red": {
+        "nodes": {
+            "rules-executer": "rules-executer.js"
+        }
+    }
+}

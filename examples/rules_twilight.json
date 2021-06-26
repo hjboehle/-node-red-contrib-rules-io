@@ -1,0 +1,376 @@
+{
+    "metadata": {
+        "rule_name": "twilight status",
+        "rule_description": "returns the twilight status from the sunrise node",
+        "environment": "outside",
+        "area": "house plot"
+    },
+    "config": {
+        "input": [
+            {
+                "source": "node",
+                "topic": "astronomicalTwilight",
+                "value_type": "int",
+                "value_range": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "source": "node",
+                "topic": "nauticalTwilight",
+                "value_type": "int",
+                "value_range": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "source": "node",
+                "topic": "civilTwilight",
+                "value_type": "int",
+                "value_range": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "source": "node",
+                "topic": "sunriseOrSunset",
+                "value_type": "int",
+                "value_range": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "source": "node",
+                "topic": "lightOrDark",
+                "value_type": "int",
+                "value_range": [
+                    0,
+                    1
+                ]
+            }
+        ],
+        "output": {
+            "destination": "mqtt",
+            "topic": "twilightStatus",
+            "value_type": "string",
+            "value_range": [
+                "astronomische Dämmerung zum Tag",
+                "nautische Dämmerung zum Tag",
+                "bürgerliche Dämmerung zum Tag",
+                "Sonnenaufgang",
+                "Helligkeit",
+                "Sonnenuntergang",
+                "bürgerliche Dämmerung zur Nacht",
+                "nautische Dämmerung zur Nacht",
+                "astronomische Dämmerung zur Nacht",
+                "Dunkelheit"
+            ]
+        }
+    },
+    "rules": [
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 0
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 0
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "astronomische Dämmerung zum Tag"
+                }
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 0
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 0
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "nautische Dämmerung zum Tag"
+                }
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 0
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 0
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "bürgerliche Dämmerung zum Tag"
+                }
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 1
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 0
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "Sonnenaufgang"
+                }
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 1
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 1
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "Helligkeit"
+                }
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 0
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 1
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "Sonnenuntergang"
+                }
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 0
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 1
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "bürgerliche Dämmerung zur Nacht"
+                }
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 1
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 0
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 1
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "nautische Dämmerung zur Nacht"
+                }
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 0
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 1
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "astronomische Dämmerung zur Nacht"
+                }
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "astronomicalTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "nauticalTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "civilTwilight",
+                        "value": 0
+                    },
+                    {
+                        "topic": "sunriseOrSunset",
+                        "value": 0
+                    },
+                    {
+                        "topic": "lightOrDark",
+                        "value": 0
+                    }
+                ],
+                "output": {
+                    "topic": "twilightStatus",
+                    "value": "Dunkelheit"
+                }
+            }
+        }
+    ]
+}

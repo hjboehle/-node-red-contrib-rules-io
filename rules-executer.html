@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    RED.nodes.registerType('rules-executer', {
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: "" },
+            rulesfilename: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "rules-executer";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="rules-executer">
+    <p>...</p>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-rulesfilename"><i class="fa fa-file"></i> File Name</label>
+        <input type="text" id="node-input-rulesfilename" placeholder="Rules File Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="rules-executer">
+    <p>A node that executes rules listed in a file.</p>
+</script>
