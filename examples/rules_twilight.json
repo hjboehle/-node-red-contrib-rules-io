@@ -71,6 +71,30 @@
             ]
         }
     },
+    "init": {
+        "input": [
+            {
+                "topic": "astronomicalTwilight",
+                "value": null
+            },
+            {
+                "topic": "nauticalTwilight",
+                "value": null
+            },
+            {
+                "topic": "civilTwilight",
+                "value": null
+            },
+            {
+                "topic": "sunriseOrSunset",
+                "value": null
+            },
+            {
+                "topic": "lightOrDark",
+                "value": null
+            }
+        ]
+    },
     "rules": [
         {
             "rule": {

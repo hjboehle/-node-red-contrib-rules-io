@@ -2,6 +2,14 @@
     "name": "node-red-contrib-rules-io",
     "version": "0.0.1",
     "description": "Generic rules node for Node-RED, that executes file-based rules",
+    "dependencies": {},
+    "keywords": [
+        "node-red",
+        "rules",
+        "rule",
+        "rules engine",
+        "rulesexecuter"
+    ],
     "node-red": {
         "nodes": {
             "rules-executer": "rules-executer.js"
