@@ -9,20 +9,23 @@
         "input": [
             {
                 "topic": "bit0",
-                "inititalValue": "0"
+                "inititalValue": 0
             },
             {
                 "topic": "bit1",
-                "inititalValue": "0"
+                "inititalValue": 0
             },
             {
                 "topic": "bit2",
-                "inititalValue": "0"
+                "inititalValue": 0
             }
         ],
-        "output": {
-            "topic": "decimalNumber"
-        }
+        "output": [
+            {
+            "topic": "decimalNumber",
+            "inititalValue": 0
+            }
+        ]
     },
     "rules": [
         {
