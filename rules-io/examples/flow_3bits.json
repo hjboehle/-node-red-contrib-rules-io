@@ -1,0 +1,245 @@
+[
+    {
+        "id": "fa3f3409.96803",
+        "type": "tab",
+        "label": "3bit",
+        "disabled": false,
+        "info": "flow to show the functionality of the node \"rules\" to return the decimal number from a three digit binary number"
+    },
+    {
+        "id": "3d75016f.3204c6",
+        "type": "inject",
+        "z": "fa3f3409.96803",
+        "name": "bit 0 = 0",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "bit0",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "dd61489f.6d867"
+            ]
+        ],
+        "outputLabels": [
+            "Bit 0 = 0"
+        ],
+        "info": "send the value 0 with the topic \"bit0\""
+    },
+    {
+        "id": "b1c1f53a.2b8f",
+        "type": "inject",
+        "z": "fa3f3409.96803",
+        "name": "bit 0 = 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "bit0",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "dd61489f.6d867"
+            ]
+        ],
+        "outputLabels": [
+            "Bit 0 = 1"
+        ],
+        "info": "send the value 1 with the topic \"bit0\""
+    },
+    {
+        "id": "c94e6fa3.dc1da",
+        "type": "inject",
+        "z": "fa3f3409.96803",
+        "name": "bit 1 = 0",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "bit1",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "dd61489f.6d867"
+            ]
+        ],
+        "outputLabels": [
+            "Bit 1 = 0"
+        ],
+        "info": "send the value 0 with the topic \"bit1\""
+    },
+    {
+        "id": "1bacb2aa.6e9865",
+        "type": "inject",
+        "z": "fa3f3409.96803",
+        "name": "bit 1 = 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "bit1",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "dd61489f.6d867"
+            ]
+        ],
+        "outputLabels": [
+            "Bit 1 = 1"
+        ],
+        "info": "send the value 1 with the topic \"bit1\""
+    },
+    {
+        "id": "2f09df7c.c856d",
+        "type": "inject",
+        "z": "fa3f3409.96803",
+        "name": "bit 2 = 0",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "bit2",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "dd61489f.6d867"
+            ]
+        ],
+        "outputLabels": [
+            "Bit 2 = 0"
+        ],
+        "info": "send the value 0 with the topic \"bit2\""
+    },
+    {
+        "id": "49e4538a.1d8294",
+        "type": "inject",
+        "z": "fa3f3409.96803",
+        "name": "bit 2 = 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "bit0",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "dd61489f.6d867"
+            ]
+        ],
+        "outputLabels": [
+            "Bit 2 = 1"
+        ],
+        "info": "send the value 1 with the topic \"bit2\""
+    },
+    {
+        "id": "64bc4742.db93d8",
+        "type": "debug",
+        "z": "fa3f3409.96803",
+        "name": "decimal number",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "dd61489f.6d867",
+        "type": "rules-io",
+        "z": "fa3f3409.96803",
+        "name": "Regeln",
+        "rulesfilename": "/dev_packages/examples/rules_3bits.json",
+        "x": 360,
+        "y": 220,
+        "wires": [
+            [
+                "64bc4742.db93d8"
+            ]
+        ],
+        "inputLabels": [
+            "bit"
+        ],
+        "outputLabels": [
+            "decimal number"
+        ],
+        "info": "returns the decimal number from a binary number"
+    }
+]
