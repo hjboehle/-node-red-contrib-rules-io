@@ -12,7 +12,7 @@
     ],
     "node-red": {
         "nodes": {
-            "rules-io": "rules-io.js"
+            "rules-io": "rules-io/rules-io.js"
         }
     }
 }

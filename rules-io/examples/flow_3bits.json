@@ -226,7 +226,7 @@
         "type": "rules-io",
         "z": "fa3f3409.96803",
         "name": "Regeln",
-        "rulesfilename": "/dev_packages/examples/rules_3bits.json",
+        "rulesfilename": "/dev_packages/rules-io/examples/rules_3bits.json",
         "x": 360,
         "y": 220,
         "wires": [
