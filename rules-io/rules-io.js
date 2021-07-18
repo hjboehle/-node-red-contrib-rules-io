@@ -14,11 +14,19 @@ module.exports = function (RED) {
                 statusJson = createStatus(rulesJson)
             }
 
+            // adjustment of the status due to the input parameters
+            statusJson = adjustStatus(statusJson, msg.topic, msg.payload);
+            node.log("status: " + JSON.stringify(statusJson));
+            nodeContext.set("statusJson_" + node.id, statusJson);
+
+            // call the function to read the rules result
+            //currentValueOutput = readRulesResult(rulesJson.rules, currentTopicInput, currentValueInput);
+
             // only for backward compability to Node-Red 0.x
             send = send || function () { node.send.apply(node, arguments) }
 
-            msg.payload = rulesJson;
-            node.log("before send");
+            // send rule output to node output
+            msg.payload = "topic: " + msg.topic +", value: " + msg.payload;
             send(msg);
 
             // only for backward compability to Node-Red 0.x
@@ -39,6 +47,21 @@ module.exports = function (RED) {
             }
             nodeContext.set("statusJson_" + node.id, statusJson);
             return statusJson;
+        }
+
+        // function to adjust the status with the input parameters
+        function adjustStatus(status, topic, value) {
+            for (var i = 0; i < status.input.length; i++) {
+                if (topic === status.input[i].topic) {
+                    status.input[i].value = value;
+                }
+            }
+            return status;
+        }
+
+        // function to read the rules result
+        function readRulesResult(rules, topic, value) {
+            return null;
         }
     }
     RED.nodes.registerType("rules-io", RulesIoNode);

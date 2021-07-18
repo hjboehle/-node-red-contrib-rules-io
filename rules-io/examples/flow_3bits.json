@@ -189,7 +189,7 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "bit0",
+        "topic": "bit2",
         "payload": "1",
         "payloadType": "num",
         "x": 130,
