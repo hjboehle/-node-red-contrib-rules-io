@@ -3,6 +3,7 @@ module.exports = function (RED) {
         RED.nodes.createNode(this, config);
         var node = this;
         this.rulesfilename = config.rulesfilename || "";
+        this.outputs = config.outputs || 1;
         var nodeContext = this.context();
         node.on('input', function (msg, send, done) {
             var rulesJson = nodeContext.get("rulesJson_" + node.id) || null;
@@ -15,11 +16,11 @@ module.exports = function (RED) {
             }
 
             // adjustment of the status due to the input parameters
-            statusJson = adjustStatus(statusJson, msg.topic, msg.payload);
+            statusJson = adjustStatus(statusJson, msg.topic, msg.payload, rulesJson.rules);
             node.log("status: " + JSON.stringify(statusJson));
             nodeContext.set("statusJson_" + node.id, statusJson);
 
-            // call the function to read the rules result
+            // call the function to read the rules results
             //currentValueOutput = readRulesResult(rulesJson.rules, currentTopicInput, currentValueInput);
 
             // only for backward compability to Node-Red 0.x
@@ -49,20 +50,28 @@ module.exports = function (RED) {
             return statusJson;
         }
 
-        // function to adjust the status with the input parameters
-        function adjustStatus(status, topic, value) {
+        // function to adjust the status with the input and output parameters
+        function adjustStatus(status, topic, value, rules) {
             for (var i = 0; i < status.input.length; i++) {
                 if (topic === status.input[i].topic) {
                     status.input[i].value = value;
                 }
             }
+            // !!! find the bug !!!
+            for (var i = 0; i < rules.length; i++) {
+                node.log("i rules loop: " + JSON.stringify(rules[i].rule.input) + ", " + JSON.stringify(status.input));
+                if (rules[i].rule.input === status.input) {
+                    status.output = rules[i].rule.output;
+                }
+            }
             return status;
         }
 
-        // function to read the rules result
+        // function to read the rules results
         function readRulesResult(rules, topic, value) {
             return null;
         }
     }
     RED.nodes.registerType("rules-io", RulesIoNode);
 };
+ 

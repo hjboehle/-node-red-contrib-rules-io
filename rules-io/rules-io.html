@@ -4,13 +4,21 @@
         color: '#FFF0F0',
         defaults: {
             name: { value: "" },
-            rulesfilename: { value: "" }
+            rulesfilename: { value: "" },
+            outputs: { value: 1 }
         },
         inputs: 1,
-        outputs: 1,
         icon: "font-awesome/fa-cogs",
         label: function () {
             return this.name || "rules-io";
+        },
+        oneditprepare: function () {
+            var node = this;
+            node.outputs = $("node-input-outputs");
+        },
+        oneditsave: function () {
+            var node = this;
+            node.outputs = $("node-input-outputs");
         }
     });
 </script>
@@ -24,6 +32,10 @@
     <div class="form-row">
         <label for="node-input-rulesfilename"><i class="fa fa-file"></i> File Name</label>
         <input type="text" id="node-input-rulesfilename" placeholder="Rules File Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-outputs"><i class="fa fa-random"></i> Outputs</label>
+        <input id="node-input-outputs" type="number" "width: 60px;" value="1">
     </div>
 </script>
 

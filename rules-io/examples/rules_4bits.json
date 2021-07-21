@@ -1,0 +1,520 @@
+{
+    "metadata": {
+        "rule_name": "3bits",
+        "rule_description": "returns the decimal number from a binary number",
+        "environment": "inside",
+        "area": "example"
+    },
+    "config": {
+        "input": [
+            {
+                "topic": "bit0",
+                "inititalValue": 0
+            },
+            {
+                "topic": "bit1",
+                "inititalValue": 0
+            },
+            {
+                "topic": "bit2",
+                "inititalValue": 0
+            },
+            {
+                "topic": "bit3",
+                "inititalValue": 0
+            }
+        ],
+        "output": [
+            {
+                "topic": "decimalNumber",
+                "inititalValue": 0
+            },
+            {
+                "topic": "hexadecimalNumber",
+                "inititalValue": 0
+            }
+        ]
+    },
+    "rules": [
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 0
+                    },
+                    {
+                        "value": 0
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 1
+                    },
+                    {
+                        "value": 1
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 2
+                    },
+                    {
+                        "value": 2
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 3
+                    },
+                    {
+                        "value": 3
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 4
+                    },
+                    {
+                        "value": 4
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 5
+                    },
+                    {
+                        "value": 5
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 6
+                    },
+                    {
+                        "value": 6
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 7
+                    },
+                    {
+                        "value": 7
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 1
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 8
+                    },
+                    {
+                        "value": 8
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 1
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 9
+                    },
+                    {
+                        "value": 9
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 3
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 10
+                    },
+                    {
+                        "value": "A"
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 3
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 11
+                    },
+                    {
+                        "value": "B"
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 1
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 12
+                    },
+                    {
+                        "value": "C"
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 1
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 13
+                    },
+                    {
+                        "value": "D"
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 0
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 1
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 14
+                    },
+                    {
+                        "value": "E"
+                    }
+                ]
+            }
+        },
+        {
+            "rule": {
+                "input": [
+                    {
+                        "topic": "bit0",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit1",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit2",
+                        "value": 1
+                    },
+                    {
+                        "topic": "bit3",
+                        "value": 1
+                    }
+                ],
+                "output": [
+                    {
+                        "value": 15
+                    },
+                    {
+                        "value": "F"
+                    }
+                ]
+            }
+        }
+    ]
+}
