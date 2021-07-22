@@ -20,9 +20,6 @@ module.exports = function (RED) {
             node.log("status: " + JSON.stringify(statusJson));
             nodeContext.set("statusJson_" + node.id, statusJson);
 
-            // call the function to read the rules results
-            //currentValueOutput = readRulesResult(rulesJson.rules, currentTopicInput, currentValueInput);
-
             // only for backward compability to Node-Red 0.x
             send = send || function () { node.send.apply(node, arguments) }
 
@@ -46,7 +43,6 @@ module.exports = function (RED) {
                 statusJson.output[i].value = statusJson.output[i].inititalValue;
                 delete statusJson.output[i].inititalValue;
             }
-            nodeContext.set("statusJson_" + node.id, statusJson);
             return statusJson;
         }
 
@@ -57,19 +53,12 @@ module.exports = function (RED) {
                     status.input[i].value = value;
                 }
             }
-            // !!! find the bug !!!
             for (var i = 0; i < rules.length; i++) {
-                node.log("i rules loop: " + JSON.stringify(rules[i].rule.input) + ", " + JSON.stringify(status.input));
-                if (rules[i].rule.input === status.input) {
+                if (JSON.stringify(rules[i].rule.input) === JSON.stringify(status.input)) {
                     status.output = rules[i].rule.output;
                 }
             }
             return status;
-        }
-
-        // function to read the rules results
-        function readRulesResult(rules, topic, value) {
-            return null;
         }
     }
     RED.nodes.registerType("rules-io", RulesIoNode);
