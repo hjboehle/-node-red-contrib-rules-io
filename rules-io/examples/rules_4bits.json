@@ -9,29 +9,29 @@
         "input": [
             {
                 "topic": "bit0",
-                "inititalValue": 0
+                "initialValue": 0
             },
             {
                 "topic": "bit1",
-                "inititalValue": 0
+                "initialValue": 0
             },
             {
                 "topic": "bit2",
-                "inititalValue": 0
+                "initialValue": 0
             },
             {
                 "topic": "bit3",
-                "inititalValue": 0
+                "initialValue": 0
             }
         ],
         "output": [
             {
                 "topic": "decimalNumber",
-                "inititalValue": 0
+                "initialValue": 0
             },
             {
                 "topic": "hexadecimalNumber",
-                "inititalValue": 0
+                "initialValue": 0
             }
         ]
     },
@@ -58,9 +58,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 0
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 0
                     }
                 ]
@@ -88,9 +90,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 1
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 1
                     }
                 ]
@@ -118,9 +122,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 2
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 2
                     }
                 ]
@@ -148,9 +154,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 3
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 3
                     }
                 ]
@@ -178,9 +186,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 4
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 4
                     }
                 ]
@@ -208,9 +218,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 5
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 5
                     }
                 ]
@@ -238,9 +250,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 6
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 6
                     }
                 ]
@@ -268,9 +282,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 7
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 7
                     }
                 ]
@@ -298,9 +314,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 8
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 8
                     }
                 ]
@@ -328,9 +346,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 9
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": 9
                     }
                 ]
@@ -358,9 +378,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 10
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": "A"
                     }
                 ]
@@ -388,9 +410,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 11
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": "B"
                     }
                 ]
@@ -418,9 +442,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 12
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": "C"
                     }
                 ]
@@ -448,9 +474,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 13
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": "D"
                     }
                 ]
@@ -478,9 +506,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 14
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": "E"
                     }
                 ]
@@ -508,9 +538,11 @@
                 ],
                 "output": [
                     {
+                        "topic": "decimalNumber",
                         "value": 15
                     },
                     {
+                        "topic": "hexadecimalNumber",
                         "value": "F"
                     }
                 ]

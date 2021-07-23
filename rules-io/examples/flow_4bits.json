@@ -228,10 +228,10 @@
         "id": "dd61489f.6d867",
         "type": "rules-io",
         "z": "fa3f3409.96803",
-        "name": "Regeln",
+        "name": "Rules",
         "rulesfilename": "/dev_packages/rules-io/examples/rules_4bits.json",
         "outputs": 1,
-        "x": 360,
+        "x": 350,
         "y": 260,
         "wires": [
             [

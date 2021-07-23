@@ -17,15 +17,18 @@ module.exports = function (RED) {
 
             // adjustment of the status due to the input parameters
             statusJson = adjustStatus(statusJson, msg.topic, msg.payload, rulesJson.rules);
-            node.log("status: " + JSON.stringify(statusJson));
+            node.log("status: " + JSON.stringify(statusJson) + "outputMessageList: " + getOutputMessageList(statusJson));
             nodeContext.set("statusJson_" + node.id, statusJson);
 
             // only for backward compability to Node-Red 0.x
             send = send || function () { node.send.apply(node, arguments) }
 
             // send rule output to node output
-            msg.payload = "topic: " + msg.topic +", value: " + msg.payload;
-            send(msg);
+            msg.payload = getOutputMessageList(statusJson);
+            node.send(msg);
+            //var msg1 = "1";
+            //var msg2 = "2";
+            //send([ msg1, msg2 ]);
 
             // only for backward compability to Node-Red 0.x
             if (done) {
@@ -36,12 +39,12 @@ module.exports = function (RED) {
         function createStatus(rulesJson) {
             statusJson = rulesJson.config;
             for (var i = 0; i < statusJson.input.length; i++) {
-                statusJson.input[i].value = statusJson.input[i].inititalValue;
-                delete statusJson.input[i].inititalValue;
+                statusJson.input[i].value = statusJson.input[i].initialValue;
+                delete statusJson.input[i].initialValue;
             }
             for (var i = 0; i < statusJson.output.length; i++) {
-                statusJson.output[i].value = statusJson.output[i].inititalValue;
-                delete statusJson.output[i].inititalValue;
+                statusJson.output[i].value = statusJson.output[i].initialValue;
+                delete statusJson.output[i].initialValue;
             }
             return statusJson;
         }
@@ -59,6 +62,13 @@ module.exports = function (RED) {
                 }
             }
             return status;
+        }
+        function getOutputMessageList(status) {
+            var outputMessageList = [];
+            for (var i = 0; i < status.output.length; i++) {
+                outputMessageList[i] = status.output[i].value;
+            }
+            return outputMessageList;
         }
     }
     RED.nodes.registerType("rules-io", RulesIoNode);
