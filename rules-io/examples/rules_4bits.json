@@ -9,29 +9,29 @@
         "input": [
             {
                 "topic": "bit0",
-                "initialValue": 0
+                "payload": 0
             },
             {
                 "topic": "bit1",
-                "initialValue": 0
+                "payload": 0
             },
             {
                 "topic": "bit2",
-                "initialValue": 0
+                "payload": 0
             },
             {
                 "topic": "bit3",
-                "initialValue": 0
+                "payload": 0
             }
         ],
         "output": [
             {
                 "topic": "decimalNumber",
-                "initialValue": 0
+                "payload": 0
             },
             {
                 "topic": "hexadecimalNumber",
-                "initialValue": 0
+                "payload": 0
             }
         ]
     },
@@ -41,29 +41,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit1",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit2",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit3",
-                        "value": 0
+                        "payload": 0
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 0
+                        "payload": 0
                     }
                 ]
             }
@@ -73,29 +73,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit1",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit2",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit3",
-                        "value": 0
+                        "payload": 0
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 1
+                        "payload": 1
                     }
                 ]
             }
@@ -105,29 +105,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit1",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit2",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit3",
-                        "value": 0
+                        "payload": 0
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 2
+                        "payload": 2
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 2
+                        "payload": 2
                     }
                 ]
             }
@@ -137,29 +137,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit1",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit2",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit3",
-                        "value": 0
+                        "payload": 0
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 3
+                        "payload": 3
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 3
+                        "payload": 3
                     }
                 ]
             }
@@ -169,29 +169,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit1",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit2",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit3",
-                        "value": 0
+                        "payload": 0
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 4
+                        "payload": 4
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 4
+                        "payload": 4
                     }
                 ]
             }
@@ -201,29 +201,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit1",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit2",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit3",
-                        "value": 0
+                        "payload": 0
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 5
+                        "payload": 5
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 5
+                        "payload": 5
                     }
                 ]
             }
@@ -233,29 +233,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit1",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit2",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit3",
-                        "value": 0
+                        "payload": 0
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 6
+                        "payload": 6
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 6
+                        "payload": 6
                     }
                 ]
             }
@@ -265,29 +265,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit1",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit2",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit3",
-                        "value": 0
+                        "payload": 0
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 7
+                        "payload": 7
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 7
+                        "payload": 7
                     }
                 ]
             }
@@ -297,29 +297,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit1",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit2",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit3",
-                        "value": 1
+                        "payload": 1
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 8
+                        "payload": 8
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 8
+                        "payload": 8
                     }
                 ]
             }
@@ -329,29 +329,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit1",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit2",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit3",
-                        "value": 1
+                        "payload": 1
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 9
+                        "payload": 9
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": 9
+                        "payload": 9
                     }
                 ]
             }
@@ -361,29 +361,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit1",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit2",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit3",
-                        "value": 3
+                        "payload": 3
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 10
+                        "payload": 10
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": "A"
+                        "payload": "A"
                     }
                 ]
             }
@@ -393,29 +393,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit1",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit2",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit3",
-                        "value": 3
+                        "payload": 3
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 11
+                        "payload": 11
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": "B"
+                        "payload": "B"
                     }
                 ]
             }
@@ -425,29 +425,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit1",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit2",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit3",
-                        "value": 1
+                        "payload": 1
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 12
+                        "payload": 12
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": "C"
+                        "payload": "C"
                     }
                 ]
             }
@@ -457,29 +457,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit1",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit2",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit3",
-                        "value": 1
+                        "payload": 1
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 13
+                        "payload": 13
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": "D"
+                        "payload": "D"
                     }
                 ]
             }
@@ -489,29 +489,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 0
+                        "payload": 0
                     },
                     {
                         "topic": "bit1",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit2",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit3",
-                        "value": 1
+                        "payload": 1
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 14
+                        "payload": 14
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": "E"
+                        "payload": "E"
                     }
                 ]
             }
@@ -521,29 +521,29 @@
                 "input": [
                     {
                         "topic": "bit0",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit1",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit2",
-                        "value": 1
+                        "payload": 1
                     },
                     {
                         "topic": "bit3",
-                        "value": 1
+                        "payload": 1
                     }
                 ],
                 "output": [
                     {
                         "topic": "decimalNumber",
-                        "value": 15
+                        "payload": 15
                     },
                     {
                         "topic": "hexadecimalNumber",
-                        "value": "F"
+                        "payload": "F"
                     }
                 ]
             }
