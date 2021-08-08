@@ -1,18 +1,18 @@
 # node-red-contrib-rules-io
 
-Generic rules node for Node-RED, that executes file-based rules in Json format. Documents your automation rules in a Json file and execute this rules directly with the "rules-io" node. The node send (output) the wanted messages after receiving a message (input).
+Rules node for Node-RED, that executes file-based rules in Json format. Documents your automation rules in a Json file and executes this rules directly with the "rules-io" node. The node sends (output) the wanted messages after receiving a message (input).
 
 ## Installation
 
-The recommended way is to install the node directly from Node-RED under "Manage palette" an the tab "Installation".
+The recommended way is to install the node directly from Node-RED under "Manage palette" and the tab "Installation".
 
-By manually installation download this repository an go to your download directory and enter
+By manual installation, download this repository and go to your download directory and enter
 
     npm install <your_download_directory>
 
 ## Configuration
 
-The following sections describes the configuration. For a better understanding please have a look of the [examples](rules-io/examples).
+The following sections describe the configuration. For a better understanding please have a look at the [examples](rules-io/examples).
 
 ### Rule File Creation
 
@@ -22,11 +22,11 @@ First of all you must create a rules file. The rules file contains a Json object
 * config
 * rules
 
-In the next sections you find the descriptions of this keys. The explanations of the values are given in the angle brackets.
+In the next sections you will find the descriptions of this keys. The explanations of the values are given in the angle brackets.
 
 #### Metadata
 
-The value of the metadata key is object with the following key value pairs:
+The value of the metadata key is an object with the following key value pairs:
 
     "metadata": {
         "rule_name": "<name of the rules by your choice>",
@@ -35,44 +35,44 @@ The value of the metadata key is object with the following key value pairs:
         "area": "<extended information where the rules have an inpact, for example kitchen or car port>"
     },
 
-All metadata have nor impact of the functionality. All metadata helps you to differences between your rules for your other rules. Only the rule name is a parameter in the node log.
+All metadata have no impact on the functionality. All metadata helps you to differentiate between your rules. Only the rule name is a parameter in the node log.
 
 #### Config
 
-The value of the config key is an object contains two lists with input objects and output objects. The config key shows the basic structure of the rules. Every rule must build by this structure.
+The value of the config key is an object containing two lists with input objects and output objects. The config key shows the basic structure of the rules. Every rule must be build according to this structure.
 
     "config": {
         "input": [
             {
                 "topic": "<unique string that describes the input>",
-                "initialValue": "<value by start or restart of Node-RED or by a deployment>"
+                "payload": "<value by start or restart of Node-RED or by a deployment>"
             },
 
             ...
 
             {
                 "topic": "<unique string that describes the input>",
-                "initialValue": "<value by start or restart of Node-RED or by a deployment>"
+                "payload": "<value by start or restart of Node-RED or by a deployment>"
             }
         ],
         "output": [
             {
                 "topic": "<unique string that describes the output>",
-                "initialValue": "<value by start or restart of Node-RED or by a deployment>"
+                "payload": "<value by start or restart of Node-RED or by a deployment>"
             },
 
             ...
 
             {
                 "topic": "<unique string that describes the output>",
-                "initialValue": "<value by start or restart of Node-RED or by a deployment>"
+                "payload": "<value by start or restart of Node-RED or by a deployment>"
             }
         ]
     },
 
 #### Rules
 
-The value of the rules key is a list contains rule objects in the same structure as the config key.
+The value of the rules key is a list containing rule objects in the same structure as the config key.
 
     "rules": [
         {
@@ -80,27 +80,27 @@ The value of the rules key is a list contains rule objects in the same structure
                 "input": [
                     {
                         "topic": "<unique string that describes the input>",
-                        "value": "<value by start or restart of Node-RED or by a deployment>"
+                        "payload": "<value by start or restart of Node-RED or by a deployment>"
                     },
 
             ...
 
                     {
                         "topic": "<unique string that describes the input>",
-                        "value": "<value by start or restart of Node-RED or by a deployment>"
+                        "payload": "<value by start or restart of Node-RED or by a deployment>"
                     }
                 ],
                 "output": [
                     {
                         "topic": "<unique string that describes the output>",
-                        "value": "<value by start or restart of Node-RED or by a deployment>"
+                        "payload": "<value by start or restart of Node-RED or by a deployment>"
                     },
 
             ...
 
                     {
                         "topic": "<unique string that describes the output>",
-                        "value": "<value by start or restart of Node-RED or by a deployment>"
+                        "payload": "<value by start or restart of Node-RED or by a deployment>"
                     }
                 ]
             }
@@ -108,15 +108,15 @@ The value of the rules key is a list contains rule objects in the same structure
 
         ...
 
-For every combination of input lists must exist an output list. If this not given the "rules-io" node don't send output messages for the undefined input lists.
+For every combination of input lists there must exist an output list. If this is not given the "rules-io" node won't send output messages for the undefined input lists.
 
 ### Node Form
 
-After creating the rules file it is possible to use the "rules-io" node. Therefore must entered the form fields of the node:
+After creating the rules file it is possible to use the "rules-io" node. For this the form fields of the node must be filled in as follows:
 
-* Name - name of the rule by your choice
+* Name - name of the rule of your choice
 * File Name (rules file name) - file name of the rules file (note: the file name must be absolute or relative to the work directory of Node-RED)
-* Outputs - the number of outputs, this number must the same number of objects in the output lists of the rules.
+* Outputs - the number of outputs, this number must be the same number as objects in the output lists of the rules.
 
 ## License
 
