@@ -1,0 +1,91 @@
+{
+    "metadata": {
+        "rule_name": "rollershutter kitchen",
+        "rule_description": "control the kitchen rollershutter",
+        "environment": "inside",
+        "area": "kitchen"
+    },
+    "config": {
+        "input": [
+            {
+                "topic": "twilight state",
+                "payload": 0
+            },
+            {
+                "topic": "sunlight incident",
+                "payload": 0
+            }
+        ],
+        "output": [
+            {
+                "topic": "rollershutter open",
+                "payload": 0
+            }
+        ]
+    },
+    "rules": [
+        {
+            "comment": "dark, no (strong) sunlight",
+            "rule": {
+                "input": [
+                    {
+                        "topic": "twilight state",
+                        "payload": 0
+                    },
+                    {
+                        "topic": "sunlight incident",
+                        "payload": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "topic": "rollershutter open",
+                        "payload": 0
+                    }
+                ]
+            }
+        },
+        {
+            "comment": "light, no strong sunlight",
+            "rule": {
+                "input": [
+                    {
+                        "topic": "twilight state",
+                        "payload": 1
+                    },
+                    {
+                        "topic": "sunlight incident",
+                        "payload": 0
+                    }
+                ],
+                "output": [
+                    {
+                        "topic": "rollershutter open",
+                        "payload": 100
+                    }
+                ]
+            }
+        },
+        {
+            "comment": "light, strong sunlight",
+            "rule": {
+                "input": [
+                    {
+                        "topic": "twilight state",
+                        "payload": 1
+                    },
+                    {
+                        "topic": "sunlight incident",
+                        "payload": 1
+                    }
+                ],
+                "output": [
+                    {
+                        "topic": "rollershutter open",
+                        "payload": 20
+                    }
+                ]
+            }
+        }
+    ]
+}

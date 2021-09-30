@@ -26,12 +26,12 @@
         "onceDelay": 0.1,
         "topic": "bit0",
         "payload": "0",
-        "payloadType": "num",
+        "payloadType": "str",
         "x": 130,
         "y": 100,
         "wires": [
             [
-                "dd61489f.6d867"
+                "91e5aa4f.d2fdb"
             ]
         ],
         "outputLabels": [
@@ -59,12 +59,12 @@
         "onceDelay": 0.1,
         "topic": "bit0",
         "payload": "1",
-        "payloadType": "num",
+        "payloadType": "str",
         "x": 130,
         "y": 140,
         "wires": [
             [
-                "dd61489f.6d867"
+                "91e5aa4f.d2fdb"
             ]
         ],
         "outputLabels": [
@@ -92,12 +92,12 @@
         "onceDelay": 0.1,
         "topic": "bit1",
         "payload": "0",
-        "payloadType": "num",
+        "payloadType": "str",
         "x": 130,
         "y": 200,
         "wires": [
             [
-                "dd61489f.6d867"
+                "91e5aa4f.d2fdb"
             ]
         ],
         "outputLabels": [
@@ -125,12 +125,12 @@
         "onceDelay": 0.1,
         "topic": "bit1",
         "payload": "1",
-        "payloadType": "num",
+        "payloadType": "str",
         "x": 130,
         "y": 240,
         "wires": [
             [
-                "dd61489f.6d867"
+                "91e5aa4f.d2fdb"
             ]
         ],
         "outputLabels": [
@@ -158,12 +158,12 @@
         "onceDelay": 0.1,
         "topic": "bit2",
         "payload": "0",
-        "payloadType": "num",
+        "payloadType": "str",
         "x": 130,
         "y": 300,
         "wires": [
             [
-                "dd61489f.6d867"
+                "91e5aa4f.d2fdb"
             ]
         ],
         "outputLabels": [
@@ -191,12 +191,12 @@
         "onceDelay": 0.1,
         "topic": "bit2",
         "payload": "1",
-        "payloadType": "num",
+        "payloadType": "str",
         "x": 130,
         "y": 340,
         "wires": [
             [
-                "dd61489f.6d867"
+                "91e5aa4f.d2fdb"
             ]
         ],
         "outputLabels": [
@@ -213,8 +213,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 580,
@@ -223,26 +223,6 @@
         "inputLabels": [
             "decimal number"
         ]
-    },
-    {
-        "id": "dd61489f.6d867",
-        "type": "rules-io",
-        "z": "fa3f3409.96803",
-        "name": "Rules",
-        "rulesfilename": "/dev_packages/rules-io/examples/rules_4bits.json",
-        "outputs": 1,
-        "x": 350,
-        "y": 260,
-        "wires": [
-            [
-                "64bc4742.db93d8",
-                "fd5cc90e.80d09"
-            ]
-        ],
-        "inputLabels": [
-            "bit"
-        ],
-        "info": "returns the decimal number from a binary number"
     },
     {
         "id": "4b26b39d.ca04cc",
@@ -264,12 +244,12 @@
         "onceDelay": 0.1,
         "topic": "bit3",
         "payload": "0",
-        "payloadType": "num",
+        "payloadType": "str",
         "x": 130,
         "y": 400,
         "wires": [
             [
-                "dd61489f.6d867"
+                "91e5aa4f.d2fdb"
             ]
         ],
         "outputLabels": [
@@ -297,12 +277,12 @@
         "onceDelay": 0.1,
         "topic": "bit3",
         "payload": "1",
-        "payloadType": "num",
+        "payloadType": "str",
         "x": 130,
         "y": 440,
         "wires": [
             [
-                "dd61489f.6d867"
+                "91e5aa4f.d2fdb"
             ]
         ],
         "outputLabels": [
@@ -319,8 +299,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 600,
@@ -328,6 +308,24 @@
         "wires": [],
         "inputLabels": [
             "hexadecimal number"
+        ]
+    },
+    {
+        "id": "91e5aa4f.d2fdb",
+        "type": "rules-io",
+        "z": "fa3f3409.96803",
+        "name": "Rules",
+        "rulesfilename": "/usr/src/node-red/rules/4bits/rules_4bits.json",
+        "outputs": 2,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "64bc4742.db93d8"
+            ],
+            [
+                "fd5cc90e.80d09"
+            ]
         ]
     }
 ]

@@ -14,11 +14,11 @@
         },
         oneditprepare: function () {
             var node = this;
-            node.outputs = $("node-input-outputs");
+            node.outputs = $("node-input-outputs").prop('checked');
         },
         oneditsave: function () {
             var node = this;
-            node.outputs = $("node-input-outputs");
+            node.outputs = $("node-input-outputs").prop('checked');
         }
     });
 </script>

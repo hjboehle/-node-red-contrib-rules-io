@@ -3,48 +3,93 @@ module.exports = function (RED) {
         RED.nodes.createNode(this, config);
         var node = this;
         this.rulesfilename = config.rulesfilename || "";
-        this.outputs = config.outputs || 1;
+        this.outputs = config.outputs;
         var nodeContext = this.context();
         node.on('input', function (msg, send, done) {
+            var nodeInput = msg;
+            delete nodeInput._msgid;
+            // This rules are the rules from the rules files stored as context, the value is null when no rules in context found.
             var rules = nodeContext.get("rules_" + node.id) || null;
-            // are there no rules stored in context rules, will the rules reading from the rules file and storing in context
+            var nodeInputs = null;
             if (rules === null) {
+                // Read the rules from the rules file and store the rules in the context.
                 rules = require(this.rulesfilename);
                 nodeContext.set("rules_" + node.id, rules);
-                // call the function to create and store the status information in context
-                status = rules.config;
+                // Read the node input values from the rules and store the values in the context (initial values after restart or deploy)
+                nodeInputs = rules.config.input;
+                nodeContext.set("inputs_" + node.id, nodeInputs);
             }
-
-            // adjustment of the status due to the input parameters
-            status = adjustStatus(status, msg.topic, msg.payload, rules.rules);
-            node.log("status: " + JSON.stringify(status) + ", outputMessages: " + JSON.stringify(status.output));
-            nodeContext.set("status_" + node.id, status);
-
-            // only for backward compability to Node-RED 0.x
+            // Read the node input values from the context (the values comes from the previous node action).
+            nodeInputs = nodeContext.get("inputs_" + node.id) || null;
+            // Create the current node input values with the input of the current node action and store the values in the context
+            nodeInputs = getCurrentInputs(nodeInput, nodeInputs);
+            nodeContext.set("inputs_" + node.id, nodeInputs);
+            // Determine from the node input values the defined output values from the rules.
+            var nodeOutputs = getNodeOutput(nodeInputs, rules.rules);
+            // Only for backward compability to Node-RED 0.x.
             send = send || function () { node.send.apply(node, arguments) }
-
-            // send rule output to node output
-            node.send(status.output);
-
-            // only for backward compability to Node-RED 0.x
+            // Send determined output values to the node outputs.
+            node.send(nodeOutputs);
+            // Only for backward compability to Node-RED 0.x.
             if (done) {
                 done();
             }
         });
 
-        // function to adjust the status with the input and output parameters
-        function adjustStatus(status, topic, payload, rules) {
-            for (var i = 0; i < status.input.length; i++) {
-                if (topic === status.input[i].topic) {
-                    status.input[i].payload = payload;
+        // Function to create the current input node objects.
+        function getCurrentInputs(nodeInput, input) {
+            var nodeInputs = [];
+            for (var i = 0; i < input.length; i++) {
+                if (nodeInput.topic === input[i].topic) {
+                    nodeInputs.push(nodeInput);
+                } else {
+                    nodeInputs.push(input[i]);
                 }
             }
+            return nodeInputs;
+        }
+        // Function to determine the node output.
+        function getNodeOutput(inputs, rules) {
+            var nodeOutputs = null;
             for (var i = 0; i < rules.length; i++) {
-                if (JSON.stringify(rules[i].rule.input) === JSON.stringify(status.input)) {
-                    status.output = rules[i].rule.output;
+                var flag = false;
+                if (compareTwoListsOfJsonObjects(rules[i].rule.input, inputs) === true) {
+                    flag = true;
+                    nodeOutputs = rules[i].rule.output;
+                    break;
                 }
             }
-            return status;
+            return nodeOutputs;
+        }
+        // Function to compare two lists of JSON objects
+        function compareTwoListsOfJsonObjects(listA, listB) {
+            if (listA.length === listB.length) {
+                for (let i in listA) {
+                    if (compareTwoJsonObjects(listA[i], listB[i]) === true) {
+                        continue;
+                    } else {
+                        return false;
+                    }
+                }
+            } else {
+                return false;
+            }
+            return true;
+        }
+        // Function to compare two JSON objects.
+        function compareTwoJsonObjects(objectA, objectB) {
+            if (Object.keys(objectA).length==Object.keys(objectB).length) {
+                for (key in objectA) {
+                    if (objectA[key] == objectB[key]) {
+                        continue;
+                    } else {
+                        return false;
+                    }
+                }
+            } else {
+                return false;
+            }
+            return true;
         }
     }
     RED.nodes.registerType("rules-io", RulesIoNode);

@@ -1,0 +1,135 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "examples/4bits/rules_4bits.json",
+    "title": "Rules I/O",
+    "description": "A rules file to specify relation between input and output",
+    "type": "object",
+    "properties": {
+        "metadata": {
+            "description": "describes meta information for the rules",
+            "type": "object",
+            "properties": {
+                "rule_name": {
+                    "description": "name of the rule",
+                    "type": "string"
+                },
+                "rule_description": {
+                    "description": "description of the rule",
+                    "type": "string"
+                },
+                "environment": {
+                    "description": "environment of the to controlled device",
+                    "type": "string",
+                    "examples": ["inside", "outside", "house", "garage", "garden"]
+                },
+                "area": {
+                    "description": "area of the to controlled device",
+                    "type": "string",
+                    "examples": ["kitchen", "living room", "terace", "flowerbed"]
+                }
+            },
+            "required": ["rule_name", "rule_description", "environment", "area"]
+        },
+        "config": {
+            "description": "configuration of the rules",
+            "type": "object",
+            "properties": {
+                "input": {
+                    "description": "topic and initial input values for the rules",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "topic": {
+                                "description": "unique identifier for the input",
+                                "type": "string"
+                            },
+                            "payload": {
+                                "description": "initial input value",
+                                "type": "string"
+                            }
+                        },
+                        "required": ["topic", "payload"]
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                },
+                "output": {
+                    "description": "topic and initial output values for the rules",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "topic": {
+                                "description": "unique identifier for the output",
+                                "type": "string"
+                            },
+                            "payload": {
+                                "description": "initial output value",
+                                "type": "string"
+                            }
+                        },
+                        "required": ["topic", "payload"]
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            },
+            "required": ["input", "output"]
+        },
+        "rules": {
+            "description": "rules for all possible inputs",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "rule": {
+                        "description": "one rule for a possible input",
+                        "type": "object",
+                        "properties": {
+                            "input": {
+                                "description": "input values with an unique identifier (topic)",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "topic": {
+                                            "description": "unique identifier for the input",
+                                            "type": "string"
+                                        },
+                                        "payload": {
+                                            "description": "input value",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["topic", "payload"]
+                                }
+                             },
+                            "output": {
+                                "description": "output values with an unique identifier (topic)",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "topic": {
+                                            "description": "unique identifier for the output",
+                                            "type": "string"
+                                        },
+                                        "payload": {
+                                            "description": "output value for the given input",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["topic", "payload"]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "required": ["metadata", "config", "rules"]
+}
