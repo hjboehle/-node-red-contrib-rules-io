@@ -15,13 +15,13 @@ module.exports = function (RED) {
                 // Read the rules from the rules file and store the rules in the context.
                 rules = require(this.rulesfilename);
                 nodeContext.set("rules_" + node.id, rules);
-                // Read the node input values from the rules and store the values in the context (initial values after restart or deploy)
+                // Read the node input values from the rules and store the values in the context (initial values after restart or deploy).
                 nodeInputs = rules.config.input;
                 nodeContext.set("inputs_" + node.id, nodeInputs);
             }
             // Read the node input values from the context (the values comes from the previous node action).
             nodeInputs = nodeContext.get("inputs_" + node.id) || null;
-            // Create the current node input values with the input of the current node action and store the values in the context
+            // Create the current node input values with the input of the current node action and store the values in the context.
             nodeInputs = getCurrentInputs(nodeInput, nodeInputs);
             nodeContext.set("inputs_" + node.id, nodeInputs);
             // Determine from the node input values the defined output values from the rules.

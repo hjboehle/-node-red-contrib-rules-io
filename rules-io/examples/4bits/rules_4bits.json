@@ -374,7 +374,7 @@
                     },
                     {
                         "topic": "bit3",
-                        "payload": "0"
+                        "payload": "1"
                     }
                 ],
                 "output": [
@@ -406,7 +406,7 @@
                     },
                     {
                         "topic": "bit3",
-                        "payload": "0"
+                        "payload": "1"
                     }
                 ],
                 "output": [

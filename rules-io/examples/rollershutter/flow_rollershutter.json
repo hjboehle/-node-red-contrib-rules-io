@@ -92,7 +92,7 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "sunlight",
+        "topic": "sunlight incident",
         "payload": "1",
         "payloadType": "num",
         "x": 200,
@@ -190,7 +190,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
+        "x": 820,
         "y": 120,
         "wires": [],
         "inputLabels": [
@@ -211,7 +211,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
+        "x": 810,
         "y": 180,
         "wires": [],
         "inputLabels": [
@@ -232,7 +232,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 830,
         "y": 240,
         "wires": [],
         "inputLabels": [

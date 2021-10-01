@@ -1,4 +1,5 @@
 {
+    "$schema": "../../rules-schema.json",
     "metadata": {
         "rule_name": "rollershutter bedroom",
         "rule_description": "control the bedroom rollershutter",

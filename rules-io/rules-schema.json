@@ -46,7 +46,7 @@
                             },
                             "payload": {
                                 "description": "initial input value",
-                                "type": "string"
+                                "type": ["string", "integer", "number"]
                             }
                         },
                         "required": ["topic", "payload"]
@@ -66,7 +66,7 @@
                             },
                             "payload": {
                                 "description": "initial output value",
-                                "type": "string"
+                                "type": ["string", "integer", "number"]
                             }
                         },
                         "required": ["topic", "payload"]
@@ -99,7 +99,7 @@
                                         },
                                         "payload": {
                                             "description": "input value",
-                                            "type": "string"
+                                            "type": ["string", "integer", "number"]
                                         }
                                     },
                                     "required": ["topic", "payload"]
@@ -117,7 +117,7 @@
                                         },
                                         "payload": {
                                             "description": "output value for the given input",
-                                            "type": "string"
+                                            "type": ["string", "integer", "number"]
                                         }
                                     },
                                     "required": ["topic", "payload"]
