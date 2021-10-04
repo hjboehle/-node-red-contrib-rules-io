@@ -14,11 +14,11 @@ By manual installation, download this repository and go to your download directo
 
 ## Configuration
 
-The following sections describe the configuration. For a better understanding please have a look at the [examples](https://github.com/hjboehle/node-red-contrib-rules-io/rules-io/examples).
+The following sections describe the configuration. For a better understanding please have a look at the [examples](https://github.com/hjboehle/node-red-contrib-rules-io/tree/main/rules-io/examples).
 
 ### Rule File Creation
 
-First of all you must create a rules file. By writing the rules file the Json schema file [rules-schema.json](https://github.com/hjboehle/node-red-contrib-rules-io/rules-io/rules-schema.json) supports you. The rules file contains a Json object with the following keys:
+First of all you must create a rules file. By writing the rules file the Json schema file [rules-schema.json](https://github.com/hjboehle/node-red-contrib-rules-io/tree/main/rules-io/rules-schema.json) supports you. The rules file contains a Json object with the following keys:
 
 * metadata
 * config
