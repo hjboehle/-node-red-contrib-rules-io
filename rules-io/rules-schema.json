@@ -49,7 +49,9 @@
                                 "type": ["string", "integer", "number"]
                             }
                         },
-                        "required": ["topic", "payload"]
+                        "required": ["topic", "payload"],
+                        "minItems": 1,
+                        "uniqueItems": true
                     },
                     "minItems": 1,
                     "uniqueItems": true
@@ -69,12 +71,14 @@
                                 "type": ["string", "integer", "number"]
                             }
                         },
-                        "required": ["topic", "payload"]
+                        "required": ["topic", "payload"],
+                        "minItems": 1,
+                        "uniqueItems": true
                     },
                     "minItems": 1,
                     "uniqueItems": true
                 }
-            },
+        },
             "required": ["input", "output"]
         },
         "rules": {
