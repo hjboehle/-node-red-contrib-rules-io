@@ -26,7 +26,6 @@ module.exports = function (RED) {
                     logEntry.metaInformation.previousInputOutput = "from rulesfile";
                 } catch (e) {
                     logEntry.statusInformation.sectionName = "read rules file";
-                    logEntry.statusInformation.exitCode = "1";
                     logEntry.statusInformation.errorMessage = e;
                     node.log(JSON.stringify(logEntry));
                     exit(1);
@@ -36,7 +35,6 @@ module.exports = function (RED) {
                     nodeContext.set("rules_" + node.id, rules);
                 } catch (e) {
                     logEntry.statusInformation.sectionName = "write rules in context";
-                    logEntry.statusInformation.exitCode = "2";
                     logEntry.statusInformation.errorMessage = e;
                     node.log(JSON.stringify(logEntry));
                     exit(2);
@@ -47,7 +45,6 @@ module.exports = function (RED) {
                     nodeContext.set("inputs_" + node.id, nodeInputs);
                 } catch (e) {
                     logEntry.statusInformation.sectionName = "write previous node inputs in context";
-                    logEntry.statusInformation.exitCode = "3";
                     logEntry.statusInformation.errorMessage = e;
                     node.log(JSON.stringify(logEntry));
                     exit(3);
@@ -59,7 +56,6 @@ module.exports = function (RED) {
                 logEntry.inputMessages.previousInputs = nodeInputs;
             } catch (e) {
                 logEntry.statusInformation.sectionName = "read previous node inputs from context";
-                logEntry.statusInformation.exitCode = "4";
                 logEntry.statusInformation.errorMessage = e;
                 node.log(JSON.stringify(logEntry));
                 exit(4);
@@ -70,7 +66,6 @@ module.exports = function (RED) {
                 logEntry.inputMessages.currentInputs = nodeInputs;
             } catch (e) {
                 logEntry.statusInformation.sectionName = "create current node inputs";
-                logEntry.statusInformation.exitCode = "5";
                 logEntry.statusInformation.errorMessage = e;
                 node.log(JSON.stringify(logEntry));
                 exit(5);
@@ -80,7 +75,6 @@ module.exports = function (RED) {
                 nodeContext.set("inputs_" + node.id, nodeInputs);
             } catch (e) {
                 logEntry.statusInformation.sectionName = "write current node inputs in context";
-                logEntry.statusInformation.exitCode = "6";
                 logEntry.statusInformation.errorMessage = e;
                 node.log(JSON.stringify(logEntry));
                 exit(6);
@@ -93,7 +87,6 @@ module.exports = function (RED) {
                 node.log("logEntry: " + JSON.stringify(logEntry));
             } catch (e) {
                 logEntry.statusInformation.sectionName = "determine current node outputs";
-                logEntry.statusInformation.exitCode = "7";
                 logEntry.statusInformation.errorMessage = e;
                 node.log(JSON.stringify(logEntry));
                 exit(7);
@@ -104,10 +97,8 @@ module.exports = function (RED) {
             logEntry.statusInformation.sectionName = "send current node outputs";
             try {
                 node.send(nodeOutputs);
-                logEntry.statusInformation.exitCode = "0";
                 node.log(JSON.stringify(logEntry));
             } catch (e) {
-                logEntry.statusInformation.exitCode = "8";
                 logEntry.statusInformation.errorMessage = e;
                 node.log(JSON.stringify(logEntry));
                 exit(8);
@@ -128,7 +119,6 @@ module.exports = function (RED) {
                 },
                 "statusInformation": {
                     "sectionName": "",
-                    "exitCode": "",
                     "errorMessage": "",
                 },
                 "inputMessages": {
@@ -200,4 +190,3 @@ module.exports = function (RED) {
     }
     RED.nodes.registerType("rules-io", RulesIoNode);
 };
- 
