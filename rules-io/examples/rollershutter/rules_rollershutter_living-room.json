@@ -1,5 +1,5 @@
 {
-    "$schema": "../../rules-schema.json",
+    "$schema": "https://raw.githubusercontent.com/hjboehle/node-red-contrib-rules-io/main/rules-io/rules-schema.json",
     "metadata": {
         "rule_name": "rollershutter kitchen",
         "rule_description": "control the kitchen rollershutter",
@@ -18,6 +18,10 @@
             }
         ],
         "output": [
+            {
+                "topic": "rollershutter open",
+                "payload": 0
+            },
             {
                 "topic": "rollershutter open",
                 "payload": 0
