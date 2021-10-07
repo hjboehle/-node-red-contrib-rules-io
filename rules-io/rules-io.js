@@ -13,7 +13,6 @@ module.exports = function (RED) {
                 "payload": msg.payload
             };
             // Create the log entry and write the first informations in it
-            var logEntry = getLogEntry(this.name, this.rulesfilename, nodeInput)
             logEntry.metaInformation.previousInputOutput = "from context";
             logEntry.statusInformation.sectionName = "message received";
             logEntry.inputMessages.receivedInput = nodeInput;
