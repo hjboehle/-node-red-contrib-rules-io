@@ -8,8 +8,10 @@ module.exports = function (RED) {
         var nodeContext = this.context();
         node.on('input', function (msg, send, done) {
             // Extract input values from the message. 
-            var nodeInput = msg;
-            delete nodeInput._msgid;
+            var nodeInput = {
+                "topic": msg.topic,
+                "payload": msg.payload
+            };
             // Create the log entry and write the first informations in it
             var logEntry = getLogEntry(this.name, this.rulesfilename, nodeInput)
             logEntry.metaInformation.previousInputOutput = "from context";
