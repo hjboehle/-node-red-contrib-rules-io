@@ -28,18 +28,18 @@ module.exports = function (RED) {
                     logEntry.metaInformation.previousInputOutput = "from rulesfile";
                 } catch (e) {
                     logEntry.statusInformation.sectionName = "read rules file";
-                    logEntry.statusInformation.errorMessage = e;
+                    logEntry.statusInformation.errorMessageSystem = e;
                     node.log(JSON.stringify(logEntry));
-                    exit(1);
+                    return null;
                 }
                 // Write rules in the context.
                 try {
                     nodeContext.set("rules_" + node.id, rules);
                 } catch (e) {
                     logEntry.statusInformation.sectionName = "write rules in context";
-                    logEntry.statusInformation.errorMessage = e;
+                    logEntry.statusInformation.errorMessageSystem = e;
                     node.log(JSON.stringify(logEntry));
-                    exit(2);
+                    return null;
                 }
                 // Read the node input values from the rules and store the values in the context (initial values after restart or deploy).
                 nodeInputs = rules.config.input;
@@ -47,10 +47,17 @@ module.exports = function (RED) {
                     nodeContext.set("inputs_" + node.id, nodeInputs);
                 } catch (e) {
                     logEntry.statusInformation.sectionName = "write previous node inputs in context";
-                    logEntry.statusInformation.errorMessage = e;
+                    logEntry.statusInformation.errorMessageSystem = e;
                     node.log(JSON.stringify(logEntry));
-                    exit(3);
+                    return null;
                 }
+            }
+            // Validate the topic value from the input
+            if (getValidateInputTopic(nodeInput.topic, rules.config.input) === false) {
+                logEntry.statusInformation.sectionName = "validate topic value of the node input";
+                logEntry.statusInformation.errorMessageNode = "unknown topic: " + nodeInput.topic;
+                node.log(JSON.stringify(logEntry));
+                return null;
             }
             // Read the node input values from the context (the values comes from the previous node action).
             try {
@@ -58,9 +65,9 @@ module.exports = function (RED) {
                 logEntry.inputMessages.previousInputs = nodeInputs;
             } catch (e) {
                 logEntry.statusInformation.sectionName = "read previous node inputs from context";
-                logEntry.statusInformation.errorMessage = e;
+                logEntry.statusInformation.errorMessageSystem = e;
                 node.log(JSON.stringify(logEntry));
-                exit(4);
+                return null;
             }
             // Create the current node input values with the input of the current node action and store the values in the context.
             try {
@@ -68,30 +75,28 @@ module.exports = function (RED) {
                 logEntry.inputMessages.currentInputs = nodeInputs;
             } catch (e) {
                 logEntry.statusInformation.sectionName = "create current node inputs";
-                logEntry.statusInformation.errorMessage = e;
+                logEntry.statusInformation.errorMessageSystem = e;
                 node.log(JSON.stringify(logEntry));
-                exit(5);
+                return null;
             }
             // Write the current node inputs in the context for the next node call.
             try {
                 nodeContext.set("inputs_" + node.id, nodeInputs);
             } catch (e) {
                 logEntry.statusInformation.sectionName = "write current node inputs in context";
-                logEntry.statusInformation.errorMessage = e;
+                logEntry.statusInformation.errorMessageSystem = e;
                 node.log(JSON.stringify(logEntry));
-                exit(6);
+                return null;
             }
             // Determine from the node input values the defined output values from the rules.
             try {
                 var nodeOutputs = getNodeOutput(nodeInputs, rules.rules);
-                node.log("nodeOutputs: " + JSON.stringify(nodeOutputs));
                 logEntry.outputMessages.currentOutputs = nodeOutputs;
-                node.log("logEntry: " + JSON.stringify(logEntry));
             } catch (e) {
                 logEntry.statusInformation.sectionName = "determine current node outputs";
-                logEntry.statusInformation.errorMessage = e;
+                logEntry.statusInformation.errorMessageSystem = e;
                 node.log(JSON.stringify(logEntry));
-                exit(7);
+                return null;
             }
             // Only for backward compability to Node-RED 0.x.
             send = send || function () { node.send.apply(node, arguments) }
@@ -101,9 +106,9 @@ module.exports = function (RED) {
                 node.send(nodeOutputs);
                 node.log(JSON.stringify(logEntry));
             } catch (e) {
-                logEntry.statusInformation.errorMessage = e;
+                logEntry.statusInformation.errorMessageSystem = e;
                 node.log(JSON.stringify(logEntry));
-                exit(8);
+                return null;
             }
             // Only for backward compability to Node-RED 0.x.
             if (done) {
@@ -121,7 +126,8 @@ module.exports = function (RED) {
                 },
                 "statusInformation": {
                     "sectionName": "",
-                    "errorMessage": "",
+                    "errorMessageSystem": "",
+                    "errorMessageNode": ""
                 },
                 "inputMessages": {
                     "receivedInput": input,
@@ -133,6 +139,17 @@ module.exports = function (RED) {
                 }
             };
             return logEntry;
+        }
+        // Function to validate a topic from input.
+        function getValidateInputTopic(topic, topics) {
+            for (i = 0; i < topics.length; i++) {
+                    if (topics[i].topic !== topic) {
+                    continue;
+                } else {
+                    return true;
+                }
+            }
+            return false;
         }
         // Function to create the current input node objects.
         function getCurrentInputs(nodeInput, input) {
